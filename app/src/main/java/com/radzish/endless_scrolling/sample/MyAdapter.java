@@ -1,4 +1,4 @@
-package com.radzish.endless_scrolling;
+package com.radzish.endless_scrolling.sample;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MyAdapter extends com.radzish.endless_scrolling.EndlessAdapter<Integer> {
+import com.radzish.endless_scrolling.EndlessAdapter;
+
+public class MyAdapter extends EndlessAdapter<Integer> {
 
     public MyAdapter(RecyclerView recyclerView, OnLoadListener onLoadMoreListener) {
         super(recyclerView, onLoadMoreListener);

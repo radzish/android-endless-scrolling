@@ -1,13 +1,13 @@
-package com.radzish.endless_scrolling;
+package com.radzish.endless_scrolling.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+import com.radzish.endless_scrolling.EndlessAdapter;
 
-    EndlessAdapter adapter;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new MyAdapter(recyclerView, new EndlessAdapter.OnLoadListener<Integer>() {
+        EndlessAdapter adapter = new MyAdapter(recyclerView, new EndlessAdapter.OnLoadListener<Integer>() {
 
             @Override
             public Integer onLoadFirst() {
