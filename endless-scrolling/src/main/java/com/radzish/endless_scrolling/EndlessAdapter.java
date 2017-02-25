@@ -46,10 +46,12 @@ public abstract class EndlessAdapter<T> extends RecyclerView.Adapter<RecyclerVie
                 lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
                 firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
 
-                if (!loading && dy != 0) {
+                int delta = linearLayoutManager.getOrientation() == LinearLayoutManager.VERTICAL ? dy : dx;
+
+                if (!loading && delta != 0) {
 
                     //scrolling up
-                    if (dy > 0 && (firstVisibleItem >= TOTAL_SIZE - VISIBLE_THRESHOLD - (lastVisibleItem - firstVisibleItem))) {
+                    if (delta > 0 && (firstVisibleItem >= TOTAL_SIZE - VISIBLE_THRESHOLD - (lastVisibleItem - firstVisibleItem))) {
 
                         loading = true;
 
@@ -77,7 +79,7 @@ public abstract class EndlessAdapter<T> extends RecyclerView.Adapter<RecyclerVie
                     }
 
                     //scrolling down
-                    if (dy < 0 && firstVisibleItem <= VISIBLE_THRESHOLD + 1) {
+                    if (delta < 0 && firstVisibleItem <= VISIBLE_THRESHOLD + 1) {
 
                         loading = true;
 
